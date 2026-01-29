@@ -16,16 +16,6 @@ The API design drives the entire backend — controllers and models are generate
 
 ---
 
-## What This Project Covers
-
-✔ API-first workflow
-✔ Contract-driven development
-✔ Auto-generated interfaces & models
-✔ Jakarta instead of javax
-✔ Clean controller implementation
-✔ Swagger UI testing
-
----
 
 ## High Level Architecture
 
@@ -45,24 +35,7 @@ Swagger UI / API Clients
 
 ---
 
-# 🛠 Prerequisites
-
-Make sure you have:
-
-* Java 17 or higher
-* Maven installed
-* IntelliJ IDEA (recommended)
-
-Verify:
-
-```bash
-java -version
-mvn -version
-```
-
----
-
-# 📜 Step-by-Step Setup
+#  Step-by-Step Setup
 
 ---
 
@@ -89,7 +62,6 @@ Include Dependencies:
 ## Step 2 — Design API Contract
 
 Create:
-
 ```
 src/main/resources/openapi/api.yaml
 ```
@@ -110,7 +82,7 @@ Add the OpenAPI Generator Maven plugin in `pom.xml` and configure:
 
 ---
 
-## Step 4 — Register Generated Sources
+## Step 4 — Register Generated Sources (IMP)
 
 Use the Maven build helper plugin to add:
 
@@ -188,7 +160,7 @@ All from the OpenAPI contract.
 ---
 
 
-# 📌 Benefits of This Approach
+#  Benefits of This Approach
 
 | Traditional   | API-First             |
 | ------------- | --------------------- |
@@ -199,42 +171,6 @@ All from the OpenAPI contract.
 | Hard to scale | Microservice friendly |
 
 ---
-
-
-# 🔮 Possible Enhancements
-
-* Database integration (JPA/Hibernate)
-* Validation rules from YAML
-* Global exception handling
-* JWT authentication
-* API versioning
-* CI/CD integration
-
----
-
-# Useful Commands
-
-Generate code:
-
-```bash
-mvn generate-sources
-```
-
-Run app:
-
-```bash
-mvn spring-boot:run
-```
-
-Clean build:
-
-```bash
-mvn clean install
-```
-
----
-
-**“Add advanced production features to this README”**
 
 Refer to this chat for handling errors :
 https://chatgpt.com/share/697bbd16-43cc-8006-b11f-dd2713010f4a
