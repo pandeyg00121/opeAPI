@@ -1,7 +1,6 @@
 #  API-First Spring Boot CRUD using OpenAPI Generator (Jakarta)
 
 This project demonstrates how to build a **Spring Boot CRUD REST API using API-First Development** with OpenAPI as the contract and OpenAPI Generator for automatic code generation.
-
 The API design drives the entire backend — controllers and models are generated directly from an OpenAPI YAML file.
 
 ---
@@ -75,10 +74,15 @@ Use:
 * IntelliJ new project
 * Or Maven archetype
 
-Include:
+Include Dependencies:
 
 * Spring Web
-* Validation (optional)
+* Validation
+* Lombok (optional)
+  
+* Swagger annotations (Jakarta)
+* Jackson nullable support
+* Springdoc OpenAPI UI
 
 ---
 
@@ -89,16 +93,7 @@ Create:
 ```
 src/main/resources/openapi/api.yaml
 ```
-
-This file defines:
-
-* All CRUD endpoints
-* Request/response schemas
-* Path parameters
-* HTTP status codes
-
-👉 This becomes the **single source of truth**.
-
+This becomes the **single source of truth**.
 ---
 
 ## Step 3 — Configure OpenAPI Generator
@@ -127,23 +122,8 @@ as a source directory so Spring Boot can compile generated code.
 
 ---
 
-## Step 5 — Install Required Dependencies
 
-Add dependencies for:
-
-* Swagger annotations (Jakarta)
-* Jackson nullable support
-* Springdoc OpenAPI UI
-
-These ensure:
-
-✔ Proper schema mapping
-✔ Swagger UI rendering
-✔ Compatibility with Spring Boot 3
-
----
-
-## Step 6 — Generate Code
+## Step 5 — Generate Code
 
 Run:
 
@@ -164,29 +144,22 @@ target/generated-sources/openapi
 
 ---
 
-## Step 7 — Implement Controller
+## Step 6 — Implement Controller
 
 Create your controller class and:
-
-* Implement the generated API interface
-* Let Spring Boot auto-map endpoints
-* Add business logic inside methods
 
 No manual `@RequestMapping` needed — it’s driven by the contract.
 
 ---
 
-## Step 8 — Run Application
+## Step 7 — Run Application
 
 ```bash
 mvn spring-boot:run
 ```
-
-or directly from IntelliJ.
-
 ---
 
-# 🧪 API Testing
+#  API Testing
 
 ### Swagger UI (Auto-Generated)
 
@@ -194,6 +167,13 @@ Open:
 
 ```
 http://localhost:8080/swagger-ui/index.html
+```
+OR
+
+```bash
+curl -X POST http://localhost:8080/users \
+-H "Content-Type: application/json" \
+-d '{"name":"Pranay","email":"pranay@gmail.com"}'
 ```
 
 From here you can:
@@ -207,15 +187,6 @@ All from the OpenAPI contract.
 
 ---
 
-### Alternative
-
-You can also test using:
-
-* Postman
-* Curl
-* Frontend clients
-
----
 
 # 📌 Benefits of This Approach
 
@@ -229,15 +200,6 @@ You can also test using:
 
 ---
 
-# 🚀 Best Practices Used
-
-* Contract-driven development
-* Clean separation of concerns
-* Jakarta compliance
-* Auto documentation
-* Build-time code generation
-
----
 
 # 🔮 Possible Enhancements
 
@@ -250,7 +212,7 @@ You can also test using:
 
 ---
 
-# 📚 Useful Commands
+# Useful Commands
 
 Generate code:
 
@@ -273,3 +235,6 @@ mvn clean install
 ---
 
 **“Add advanced production features to this README”**
+
+Refer to this chat for handling errors :
+https://chatgpt.com/share/697bbd16-43cc-8006-b11f-dd2713010f4a
